@@ -32,9 +32,6 @@ def FSkgen(inpSig, fskFreq1, fskFreq2):
             lval+=1
     return timepd, mainsig, adjsig
 
-
-
-
 def FSKdemod(FSKsig):
     sample_duration = len(FSKsig)/16
     i = 0
@@ -129,7 +126,7 @@ def main():
     ax3.set_ylabel("Amplitude")
 
     plt.show()
-    fig.savefig('D:\pyFSK-master\mywork\img\Modulate_fsk.png', bbox_inches='tight')
+    fig.savefig('D:\Miniproject_Ce\mywork\img\Modulate_fsk.png', bbox_inches='tight')
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 8))
     fig.subplots_adjust(hspace=0.5)
@@ -148,7 +145,7 @@ def main():
     ax2.set_ylabel("Amplitude")
 
     plt.show()
-    fig.savefig('D:\pyFSK-master\mywork\img\Demodulate_fsk.png', bbox_inches='tight')
+    fig.savefig('D:\Miniproject_Ce\mywork\img\Demodulate_fsk.png', bbox_inches='tight')
 if __name__ == "__main__":
     main()
 
