@@ -5,8 +5,6 @@ import math
 from matplotlib import style
 style.use('ggplot')
 
-
-
 def FSkgen(inpSig, fskFreq1, fskFreq2):
     #create a time domain from 0 to length of input(bit length) in intervals of 0.01....thus total of 100 samples per bit...hence 1600 samples for 16 bit data.
     timepd = np.arange(0 ,len(inpSig) ,0.01)
@@ -126,7 +124,7 @@ def main():
     ax3.set_ylabel("Amplitude")
 
     plt.show()
-    fig.savefig('D:\Miniproject_Ce\mywork\img\Modulate_fsk.png', bbox_inches='tight')
+    fig.savefig('D:\Code\Workspace\Miniproject_CE\mywork\Modulate_fsk.png', bbox_inches='tight')
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 8))
     fig.subplots_adjust(hspace=0.5)
@@ -145,7 +143,7 @@ def main():
     ax2.set_ylabel("Amplitude")
 
     plt.show()
-    fig.savefig('D:\Miniproject_Ce\mywork\img\Demodulate_fsk.png', bbox_inches='tight')
+    fig.savefig('D:\Code\Workspace\Miniproject_CE\mywork\Demodulate_fsk.png', bbox_inches='tight')
 if __name__ == "__main__":
     main()
 
