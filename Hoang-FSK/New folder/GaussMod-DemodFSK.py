@@ -84,7 +84,9 @@ def main():
 
     f1 = 1
     f2 = 3
- 
+    
+    
+    
     
     #compute FSK of input signal with fskFreq1 for bit1 as 2Hz, fskFreq2 for  bit2 as 0.9Hz...frequencies chosen for better visibility in plots
     timepd, mainsig, adjsig = FSkgen(inpSig,f1,f2)
@@ -100,7 +102,11 @@ def main():
         for x in range(0,100):
             bitPlot.append(bit)
 
-
+    print('\nthe demodulation binary sequence is : {}\n'.format(det_Bits))
+    # Compute the error probability
+    error_probability = np.sum(np.abs(inpSig - det_Bits)) / len(inpSig)
+    print("Error Probability:", error_probability)
+    
     #Plotting the signals
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(15, 8))
     fig.subplots_adjust(hspace=0.5)
