@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 binary_data = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0] 
 
 # Constants
+A = 1 # The Amplitude of signal
 N = 1000 # The number of samples in the time domain.
 f1 = 100 # The frequency of the first carrier signal. 
 f2 = 50 # The frequency of the second carrier signal
