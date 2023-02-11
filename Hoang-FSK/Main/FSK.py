@@ -60,11 +60,18 @@ for i in range(len(binary_data)):
 # error_probability: The error probability, calculated as the ratio of the number of incorrect symbols to the total number of symbols.
 error_probability = np.sum(np.abs(binary_data - demodulated_binary_data)) / len(binary_data) 
 
+def show_binary_in_plot(data):
+    data_plt = []
+    for i in range(len(data)):
+        for j in range((int) (N/len(data))):
+            data_plt.append(data[i])
+    return data_plt    
+        
 # plt: The matplotlib library for plotting the results.
 plt.figure()
 plt.subplot(511)
 plt.title("Binary Data", fontsize='8')
-plt.plot(binary_data, 'o-', markersize=8, color='red')
+plt.plot(show_binary_in_plot(binary_data), markersize=8, color='red')
 
 plt.subplot(512)
 plt.title("Carrier Signal 1", fontsize='8')
@@ -80,7 +87,8 @@ plt.plot(r)
 
 plt.subplot(515)
 plt.title("Demodulated Binary Data", fontsize='8')
-plt.plot(demodulated_binary_data, 'o-', markersize=8, color='red')
+plt.text(-1, 1.2, 'error probability = ' + str(error_probability))
+plt.plot(show_binary_in_plot(demodulated_binary_data), markersize=8, color='red')
 
 plt.tight_layout()
 plt.show()
