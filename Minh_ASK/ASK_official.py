@@ -54,8 +54,8 @@ def disp():
     ax2.set_xlabel("Time period")
     ax2.set_ylabel("Amplitude")
 
-    plt.show()
-    fig.savefig('D:\Miniproject_Ce\Minh_ASK\pic\Carriers_ask.png', bbox_inches='tight')
+    # plt.show()
+    fig.savefig('D:\Miniproject_Ce\Minh_ASK\pic\Modulate_ask.png', bbox_inches='tight')
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 5))
     fig.subplots_adjust( hspace = 0.5)
@@ -72,8 +72,8 @@ def disp():
     ax2.set_ylabel("Amplitude")
     ax2.set_ylim(bottom=-10, top=10)
 
-    plt.show()
-    fig.savefig('D:\Miniproject_Ce\Minh_ASK\pic\Modulate_ask.png', bbox_inches='tight')
+    # plt.show()
+    fig.savefig('D:\Miniproject_Ce\Minh_ASK\pic\Carriers_ask.png', bbox_inches='tight')
 
     fig, (ax1) = plt.subplots(1, 1, figsize=(10, 4))
     fig.subplots_adjust( hspace = 0.5)
@@ -82,20 +82,20 @@ def disp():
     ax1.set_title("Noisy Received Signal")
     ax1.set_xlabel("Time period")
     ax1.set_ylabel("Amplitude")
-    plt.show()
+    # plt.show()
     fig.savefig('D:\Miniproject_Ce\Minh_ASK\pic\Demodulate_AWGN_ask.png', bbox_inches='tight')
    
 
 # bitlen = 200
 nb = 100  # number of samples per bit
-A1 = 10 # Carrier1 signal amplitude 
-A2 = 5  # Carrier2 signal amplitude  
+A1 = 20 # Carrier1 signal amplitude 
+A2 = 0  # Carrier2 signal amplitude  
 f = 5  # Carrier signal frequency
-N0 = 2 # The power spectral density of the Gaussian noise
+N0 = 1000 # The power spectral density of the Gaussian noise
 # binary_seq = [random.randint(0,1) for x in range(0,bitlen)]
-
-binary_seq = np.array([1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0])
-bitlen = len(binary_seq)
+# the binary sequence
+binary_seq = np.array([1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0]) 
+bitlen = len(binary_seq) # the length of binary sequence
 print('The input binary sequence is : {}\n'.format(binary_seq))
 
 timeline = np.arange(0 , bitlen, 0.01)
@@ -104,7 +104,7 @@ carrier2 = A2*np.cos(2*np.pi*f*timeline)
 
 mod_signal, binary_signal = ASKmod(binary_seq)
 
-noise = 15*np.sqrt(N0/2)*np.random.randn(bitlen * nb)
+noise = 10*np.sqrt(N0/2)*np.random.randn(bitlen * nb)
 noisy_signal= mod_signal + noise
 
 binary_demod_noisy = ASKdemod(noisy_signal)
