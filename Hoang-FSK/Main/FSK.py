@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 binary_data = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0] 
 
 # Constants
-A = 1 # The Amplitude of signal
+A = 10 # The Amplitude of signal
 N = 1000 # The number of samples in the time domain.
 f1 = 100 # The frequency of the first carrier signal. 
 f2 = 50 # The frequency of the second carrier signal
@@ -31,7 +31,7 @@ for i in range(len(binary_data)):
 
 # Add Gaussian noise
 # mul: The multiplier of the Gaussian noise
-mul = 10;  
+mul = 100;  
 # noise: The Gaussian noise, generated using the numpy random function with the mean and standard deviation set to 0 and sqrt(N0/2), respectively.
 noise = mul * np.sqrt(N0/2) * np.random.randn(N) 
 # r: The noisy FSK modulated signal, obtained by adding the noise to the fsk_modulated_signal.
